@@ -1,22 +1,21 @@
-.globl	_ZNK9CTriangle9HeightAsmEv
 .data
-        constante2: .float 2.0
+        factor: .float 2.0 /* use this to multiply by two */
+
+.text
+.globl	_ZNK9CTriangle9HeightAsmEv
 
 _ZNK9CTriangle9HeightAsmEv:
-        push %ebp      /* save old base pointer */
-        mov %esp, %ebp /* set ebp to current esp */
+        push %ebp               /* save old base pointer */
+        mov %esp, %ebp          /* set ebp to current esp */
 
-        movl	8(%ebp), %eax           # On met l'objet dans eax
-	movl	(%eax), %eax            # On met l'adresse de l'objet dans eax
-	addl	$16, %eax               # On ajout 16 a l'adresse pour avoir la fonction qu'on veut
-	movl	(%eax), %eax            # On met l'adresse dans eax
-        pushl	8(%ebp)                 # On met l'objet sur le stack                
-	call	*%eax                   # On appelle la fonction sur l'objet
+        movl	8(%ebp), %eax   #on met ladresse de lobjet dans eax
+        pushl	%eax            #lobjet au debut de la pile              
+	    call	_ZNK9CTriangle7AreaAsmEv    #on fait la fonction AreaCpp avec lobjet
 
-        fld     12(%eax)                # On met mSides[2] sur la pile a s[0] et A a s[1]
-        fdivrp                          # Division de s[1] (A) par s[0] (mSides[2])
-        fld     constante2              # On a 2 a s[0] et le resultat de A/mSides[2] a s[1]
-        fmulp                           # On multiplie 2 * A/ mSides[2]
+		fld factor				#pile[0] = 2 et pile[1] = A
+		fmulp					#A*2
+		fld 12(%eax)			#pile[0] = mSide[2] et pile[1] =A*2
+		fdivrp					#pile[0]= A*2/mSide[2]
 
-        leave          /* restore ebp and esp */
-ret            /* return to the caller */
+        leave                   /* restore ebp and esp */
+        ret                     /* return to the caller */

@@ -10,10 +10,8 @@ _ZNK9CTriangle7AreaAsmEv:
         
         /* Write your solution here */
         movl 8(%ebp), %eax		#on met ladresse de lobjet dans eax
-		addl $12, %eax			#pour PerimeterAsm
-		movl (%eax), %eax		#ladresse de PerimeterAsm dans eax
-		push 8(%ebp)			#lobjet au debut de la pile
-		call *%eax				#call la fonction PerimeterAsm sur lobjet
+		push %eax   			#lobjet au debut de la pile
+		call _ZNK9CTriangle12PerimeterAsmEv	#call la fonction PerimeterAsm sur lobjet
 
 		fld factor				#pile[0] = 2 et pile[1] = P
 		fdivrp					#P/2
