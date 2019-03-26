@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2041
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{83BD4369-66FC-4A23-90B5-C2EAA7305717}"
+	ProjectSection(SolutionItems) = preProject
+		average.s = average.s
+		diagonal.s = diagonal.s
+		equals.s = equals.s
+		multiply.s = multiply.s
+		tp3.c = tp3.c
+		transpose.s = transpose.s
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9826F1C6-2CE7-4EC1-BF89-F7EE9C657A2D}
+	EndGlobalSection
+EndGlobal
